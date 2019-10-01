@@ -34,6 +34,7 @@ public class BaseDaoHibernate<Model extends Object> extends HibernateDaoSupport{
 	 * @param argsMap
 	 * @return
 	 */
+	@SuppressWarnings("rawtypes")
 	protected List<Model> findByHQLWithQueryObject(final String hql, final Map argsMap){
 		return this.findByHQLWithQueryObject(hql, argsMap, null, null);
 	}
@@ -47,6 +48,7 @@ public class BaseDaoHibernate<Model extends Object> extends HibernateDaoSupport{
 	 * @param maxCount
 	 * @return
 	 */
+	@SuppressWarnings("rawtypes")
 	protected List<Model> findByHQLWithQueryObject(final String hql, final Map argsMap, final String headIndex, final String maxCount){
 		return (List<Model>) getHibernateTemplate().execute(
 				new HibernateCallback<List<Model>>() {
@@ -76,6 +78,7 @@ public class BaseDaoHibernate<Model extends Object> extends HibernateDaoSupport{
 	 * @param argsMap
 	 * @return
 	 */
+	@SuppressWarnings("rawtypes")
 	protected long countByHQLWithQueryObject(final String hql, final Map argsMap){
 		@SuppressWarnings("unchecked")
 		List<Model> list =  (List<Model>) this.getHibernateTemplate().execute(new HibernateCallback<List<Model>>(){
@@ -119,6 +122,7 @@ public class BaseDaoHibernate<Model extends Object> extends HibernateDaoSupport{
 	 * @param argsMap
 	 * @return
 	 */
+	@SuppressWarnings("rawtypes")
 	protected List findBySQLWithQueryObject(final String sql, final Map argsMap){
 		return this.findBySQLWithQueryObject(sql, argsMap, null, null);
 	}
@@ -132,7 +136,7 @@ public class BaseDaoHibernate<Model extends Object> extends HibernateDaoSupport{
 	 * @param maxCount
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	protected List findBySQLWithQueryObject(final String sql, final Map argsMap, final String headIndex, final String maxCount){
 		return (List) getHibernateTemplate().execute(new HibernateCallback(){
 			public Object doInHibernate(Session session){
@@ -159,7 +163,7 @@ public class BaseDaoHibernate<Model extends Object> extends HibernateDaoSupport{
 	 * @param argsMap
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	protected int updateBySQLWithQueryObject(final String sql, final Map argsMap){
 		return (Integer)this.getHibernateTemplate().execute(new HibernateCallback(){
 			public Object doInHibernate(Session session){

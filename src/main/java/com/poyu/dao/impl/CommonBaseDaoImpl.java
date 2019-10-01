@@ -19,6 +19,7 @@ public class CommonBaseDaoImpl<Model> extends BaseDaoHibernate<Model> implements
 	 * 
 	 * @param entities
 	 */
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void deleteCollection(List entities) {
 		this.getHibernateTemplate().deleteAll(entities);
@@ -94,6 +95,7 @@ public class CommonBaseDaoImpl<Model> extends BaseDaoHibernate<Model> implements
 		return updateBySQLWithQueryObject(sql.toString(), null);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List<Model> getAllModel(Model entity) {
 		List<Model> result = null;

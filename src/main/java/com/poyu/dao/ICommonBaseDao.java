@@ -16,6 +16,7 @@ public interface ICommonBaseDao<Model extends Object> {
 	 * 
 	 * @param entities
 	 */
+	@SuppressWarnings("rawtypes")
 	public void deleteCollection(List entities);
 
 	/**
